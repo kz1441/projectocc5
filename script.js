@@ -442,7 +442,17 @@ const content = {
                         steps: [
                             { image: "https://img.freepik.com/premium-photo/asian-man-waking-up-morning-sitting-bed-stretching_126277-1356.jpg", label: "Wake Up" },
 							{ image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDg1djlmZ2Zna213dGd6amEwNHJjdHNoNWZlcTJ4bTF1Y203c3cxOCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YaY0FF0eUWLtVNK1Uw/giphy.gif", label: "Brush Teeth" },
-                            { image: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGJqbDBocDk2NWs1eGNueGNrcW13M2cxYXE5M3MzcThkcmc4bWY2OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ri8FpKsdTwiaUFWysZ/giphy.gif", label: "Wash Face" },
+                            {
+                                image: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGJqbDBocDk2NWs1eGNueGNrcW13M2cxYXE5M3MzcThkcmc4bWY2OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ri8FpKsdTwiaUFWysZ/giphy.gif",
+                                label: "Wash Face",
+                                details: [
+                                    "Wet face",
+                                    "Gentle cleanser",
+                                    "Gentle circles",
+                                    "Rinse with water",
+                                    "Pat dry with clean towel"
+                                ]
+                            },
                             { image: "https://www.telegraph.co.uk/content/dam/men/2017/06/30/TELEMMGLPICT000133447980_trans_NvBQzQNjv4BqdNLuJDSj-bduoIdVkVeVwdhwat7RjkF5CleLcJsFAQc.jpeg?imwidth=640", label: "Wear Deodorant" },
                             { image: "https://globalsymbols.com/uploads/production/image/imagefile/8124/15_8124_b6261b9d-abb4-4bdb-b334-69d8ab3a8ff1.jpg", label: "Change Clean Clothes" },
                         ]
@@ -1021,12 +1031,16 @@ else if (slide.type === "strip") {
     stripContainer.className = 'hygiene-strip-container';
 
     slide.steps.forEach((step, index) => {
+        const detailText = Array.isArray(step.details)
+            ? step.details.map(item => translateText(item)).join(' → ')
+            : '';
         // Create the step card
         const stepDiv = document.createElement('div');
         stepDiv.className = 'strip-step';
         stepDiv.innerHTML = `
             <img src="${step.image}" alt="${step.label}">
-            <p>${translateText(step.label)}</p>
+            <p class="strip-step-label">${translateText(step.label)}</p>
+            ${detailText ? `<p class="strip-step-details">${detailText}</p>` : ''}
         `;
         stripContainer.appendChild(stepDiv);
 
@@ -1884,10 +1898,14 @@ function updateTeachUI() {
         let html = `<h2 class="teach-text">${translateText(slide.text || '')}</h2>`;
         html += `<div class="hygiene-strip">`;
         slide.steps.forEach(step => {
+            const detailText = Array.isArray(step.details)
+                ? step.details.map(item => translateText(item)).join(' → ')
+                : '';
             html += `
                 <div class="strip-item">
                     <div class="strip-icon">${step.icon}</div>
                     <div class="strip-label">${translateText(step.label)}</div>
+                    ${detailText ? `<div class="strip-details">${detailText}</div>` : ''}
                 </div>`;
         });
         html += `</div>`;
