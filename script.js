@@ -21,7 +21,7 @@ let currentLanguage = 'en';
 const translations = {
     ms: {
         "Language": "Bahasa",
-        "Welcome here!": "Selamat datang!",
+        "Welcome to Puberty Buddy!": "Selamat datang ke Puberty Buddy!",
         "Physical and Emotional Changes": "Perubahan Fizikal dan Emosi",
         "Hygiene & Self-Care Routine": "Kebersihan & Rutin Penjagaan Diri",
         "Confidence, Self-Acceptance and Lifestyle": "Keyakinan, Penerimaan Diri dan Gaya Hidup",
@@ -31,9 +31,11 @@ const translations = {
         "Animation of Body Changes": "Animasi Perubahan Badan",
         "Choose me!": "Pilih saya!",
         "Boy": "Budak lelaki",
-        "Your body changes as you grow!": "Badan kamu berubah apabila membesar!",
-        "You grow taller": "Kamu menjadi lebih tinggi",
-        "Hair grows on your body": "Bulu tumbuh pada badan kamu",
+        "Body changes": "Perubahan badan",
+        "Grow taller": "Semakin tinggi",
+        "Body hair": "Bulu badan",
+        "Taller": "Lebih tinggi",
+        "Hair": "Bulu",
         "Click me to see changes!": "Klik saya untuk lihat perubahan!",
         "Growing Taller": "Semakin tinggi",
         "Growing Body Hair": "Bulu badan tumbuh",
@@ -42,14 +44,14 @@ const translations = {
         "Mood Tracker": "Penjejak Emosi",
         "It's okay to have any feeling": "Tidak mengapa mempunyai apa-apa perasaan",
         "Tap your mood now!": "Sentuh perasaan kamu sekarang!",
-        "Happy": "Gembira",
-        "Angry": "Marah",
-        "Sad": "Sedih",
+        "I feel happy": "Saya rasa gembira",
+        "I feel angry": "Saya rasa marah",
+        "I feel sad": "Saya rasa sedih",
         "Touch your forehead. How does your skin feel to your fingers?": "Sentuh dahi kamu. Bagaimana rasa kulit kamu?",
         "Smooth and Dry!": "Licin dan kering!",
         "Silky or Oily": "Licin atau berminyak",
         "Bumpy and Itchy": "Kasar dan gatal",
-        "How much power does your 'Body Battery' have right now?": "Berapa banyak tenaga dalam “Bateri Badan” kamu sekarang?",
+        "How much power do you have now?": "Berapa banyak tenaga kamu sekarang?",
         "Timeline Matching Activity": "Aktiviti Padanan Garis Masa",
         "Changes happen over time, especially during puberty": "Perubahan berlaku mengikut masa, terutamanya semasa akil baligh",
         "Before puberty: You are still a child": "Sebelum akil baligh: Kamu masih kanak-kanak",
@@ -87,24 +89,24 @@ const translations = {
         "Everyone looks different": "Semua orang kelihatan berbeza",
         "I am strong and special!": "Saya kuat dan istimewa!",
         "I love myself!": "Saya sayang diri saya!",
-        "I am...": "Saya...",
+        "I am... +": "Saya... +",
         "Strong": "Kuat",
         "Special": "Istimewa",
         "Amazing": "Hebat",
-        "Which shows positive body image?": "Yang manakah menunjukkan imej badan positif?",
+        "Which shows positive body image? +": "Yang manakah menunjukkan imej badan positif? +",
         "My body is strong": "Badan saya kuat",
         "My body is bad": "Badan saya tidak bagus",
         "What I Like About Me": "Apa yang Saya Suka Tentang Diri Saya",
         "I have special talents!": "Saya ada bakat istimewa!",
-        "What do you see in the mirror today that makes you smile?": "Apa yang kamu lihat di cermin hari ini yang membuat kamu tersenyum?",
+        "Look in the mirror": "Lihat cermin",
+        "What makes you smile? +": "Apa yang membuat kamu tersenyum? +",
         "My Cool Hair": "Rambut saya yang keren",
         "My Strong Legs": "Kaki saya yang kuat",
         "My Happy Eyes": "Mata saya yang gembira",
-        "My Favourite Shirt": "Baju kegemaran saya",
-        "Today, I did a great job at...": "Hari ini, saya berjaya dalam...",
-        "Helping others": "Menolong orang lain",
-        "Finishing my homework": "Menyiapkan kerja rumah",
-        "Trying a new food": "Mencuba makanan baru",
+        "Today, I... +": "Hari ini, saya... +",
+        "Helped others": "Menolong orang lain",
+        "Finished my homework": "Menyiapkan kerja rumah",
+        "Cleaned my room": "Mengemas bilik saya",
         "Sleep Impact Quiz": "Kuiz Kesan Tidur",
         "Sleep helps you grow!": "Tidur membantu kamu membesar!",
         "Sleep makes you strong": "Tidur membuat kamu kuat",
@@ -138,7 +140,7 @@ const translations = {
     },
     zh: {
         "Language": "语言",
-        "Welcome here!": "欢迎来到这里！",
+        "Welcome to Puberty Buddy!": "欢迎来到 Puberty Buddy！",
         "Physical and Emotional Changes": "身体与情绪变化",
         "Hygiene & Self-Care Routine": "卫生与自我护理",
         "Confidence, Self-Acceptance and Lifestyle": "自信、自我接纳与生活方式",
@@ -148,9 +150,11 @@ const translations = {
         "Animation of Body Changes": "身体变化动画",
         "Choose me!": "选择我！",
         "Boy": "男孩",
-        "Your body changes as you grow!": "你的身体会随着成长而变化！",
-        "You grow taller": "你会长高",
-        "Hair grows on your body": "身上会长出毛发",
+        "Body changes": "身体变化",
+        "Grow taller": "长高",
+        "Body hair": "体毛",
+        "Taller": "更高",
+        "Hair": "毛发",
         "Click me to see changes!": "点击我查看变化！",
         "Growing Taller": "长高",
         "Growing Body Hair": "长出体毛",
@@ -159,14 +163,14 @@ const translations = {
         "Mood Tracker": "情绪记录",
         "It's okay to have any feeling": "有任何感受都没关系",
         "Tap your mood now!": "点击你现在的心情！",
-        "Happy": "开心",
-        "Angry": "生气",
-        "Sad": "伤心",
+        "I feel happy": "我觉得开心",
+        "I feel angry": "我觉得生气",
+        "I feel sad": "我觉得伤心",
         "Touch your forehead. How does your skin feel to your fingers?": "摸摸你的额头。皮肤摸起来怎么样？",
         "Smooth and Dry!": "光滑又干爽！",
         "Silky or Oily": "光滑或油油的",
         "Bumpy and Itchy": "粗糙并发痒",
-        "How much power does your 'Body Battery' have right now?": "你的“身体电量”现在有多少？",
+        "How much power do you have now?": "你现在有多少能量？",
         "Timeline Matching Activity": "时间线配对活动",
         "Changes happen over time, especially during puberty": "变化会随着时间发生，尤其是青春期",
         "Before puberty: You are still a child": "青春期前：你还是孩子",
@@ -204,24 +208,24 @@ const translations = {
         "Everyone looks different": "每个人都不一样",
         "I am strong and special!": "我很强壮也很特别！",
         "I love myself!": "我爱自己！",
-        "I am...": "我是……",
+        "I am... +": "我是…… +",
         "Strong": "强壮",
         "Special": "特别",
         "Amazing": "很棒",
-        "Which shows positive body image?": "哪个显示积极的身体形象？",
+        "Which shows positive body image? +": "哪个显示积极的身体形象？ +",
         "My body is strong": "我的身体很强壮",
         "My body is bad": "我的身体不好",
         "What I Like About Me": "我喜欢自己的地方",
         "I have special talents!": "我有特别的才能！",
-        "What do you see in the mirror today that makes you smile?": "今天你在镜子里看到什么让你微笑？",
+        "Look in the mirror": "照镜子",
+        "What makes you smile? +": "什么让你微笑？ +",
         "My Cool Hair": "我的酷发型",
         "My Strong Legs": "我强壮的腿",
         "My Happy Eyes": "我开心的眼睛",
-        "My Favourite Shirt": "我最喜欢的衣服",
-        "Today, I did a great job at...": "今天我做得很好的是……",
-        "Helping others": "帮助他人",
-        "Finishing my homework": "完成作业",
-        "Trying a new food": "尝试新食物",
+        "Today, I... +": "今天，我… +",
+        "Helped others": "帮助他人",
+        "Finished my homework": "完成作业",
+        "Cleaned my room": "打扫房间",
         "Sleep Impact Quiz": "睡眠影响测验",
         "Sleep helps you grow!": "睡眠帮助你成长！",
         "Sleep makes you strong": "睡眠让你强壮",
@@ -286,19 +290,23 @@ const content = {
 						]
 					},
 					{
-						text: "Your body changes as you grow!",
+						text: "Body changes",
 						image: {
 							male: "https://i.pinimg.com/564x/f8/fc/59/f8fc59c8eccc0c32774606ed2f3407c1.jpg"
-						}
+						},
+						labels: [
+							{ text: "Taller", x: "70%", y: "10%" },
+							{ text: "Hair", x: "35%", y: "55%" }
+						]
 					},
 					{
-						text: "You grow taller",
+						text: "Grow taller",
 						image: {
 							male: "images/HeightGrowthCartoonMale.jpg"
 						}
 					},
 					{
-						text: "Hair grows on your body",
+						text: "Body hair",
 						image: {
 							male: "images/bodyHairMale.jpeg"
 						}
@@ -343,7 +351,7 @@ const content = {
 				activity: {
 					instruction: "Tap your mood now!",
 					type: "multiSelect", // or a valid activity type
-					items: [{ text: "Happy", image: "images/Screenshot_20260108_233847_Gallery.jpg" }, { text: "Angry", image: "images/Screenshot_20260108_233740_Gallery.jpg" }, { text: "Sad", image: "images/Screenshot_20260108_233823_Gallery.jpg" }]
+					items: [{ text: "I feel happy", image: "images/Screenshot_20260108_233847_Gallery.jpg" }, { text: "I feel angry", image: "images/Screenshot_20260108_233740_Gallery.jpg" }, { text: "I feel sad", image: "images/Screenshot_20260108_233823_Gallery.jpg" }]
 				},
 				quiz: [{
 					type: "subjective", // Special type for no right/wrong
@@ -357,7 +365,7 @@ const content = {
 				}, 
 				{
 					type: "subjective", // Special type for no right/wrong
-					question: "How much power does your 'Body Battery' have right now?",
+					question: "How much power do you have now?",
 					image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaUXoeVwvxP41cJ-uWPp4AmUjTVAUEi87tyQ&s", // The single large image
 					options: [
 						{ text: "100%", image: "https://www.mentalup.co/img/blog/running-games-for-kids-12.jpg" },
@@ -544,7 +552,7 @@ const content = {
                     }
                 ],
                 activity: {
-                    instruction: "I am...",
+                    instruction: "I am... +",
                     type: "positiveTraits",
                     traits: [
                         { text: "Strong", icon: "💪", image: "images/IMG-20260108-WA0005.jpg" },
@@ -553,7 +561,7 @@ const content = {
                     ]
                 },
                 quiz: {
-                    question: "Which shows positive body image?",
+                    question: "Which shows positive body image? +",
                     options: [
                         { text: "My body is strong", icon: "💪", correct: true },
                         { text: "My body is bad", icon: "❌", correct: false }
@@ -566,27 +574,25 @@ const content = {
 				image: "https://media.istockphoto.com/id/1452314042/vector/happy-boy-hugging-himself-with-heart-icons-self-care-self-love.jpg?s=612x612&w=0&k=20&c=lqroMX9fXCWxJ5qZfpnJdUSsf8fv3Bhhwt9I_57IPuU=",
                 teach: [
                     {
-                        text: "I have special talents!",
+                        text: "Look in the mirror",
                         image: "https://img.freepik.com/premium-vector/cartoon-boy-looking-his-reflection-mirror_1120557-36298.jpg"
                     }
                 ],
                 activity: {
-                    instruction: "What do you see in the mirror today that makes you smile?",
+                    instruction: "What makes you smile? +",
                     type: "multiSelect",
-					image: "https://t4.ftcdn.net/jpg/01/98/91/57/360_F_198915705_2dm0Qri709HBBRlfrMtwphewocmBapuT.jpg",
                     items: [
                         { text: "My Cool Hair", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSoASVH4k04RzFcJ_82hz389VZTtGhl9wksBw&s" },
                         { text: "My Strong Legs", image: "https://ik.imagekit.io/shortpedia/Voices/wp-content/uploads/2020/10/Calf-Raises.jpg" },
-                        { text: "My Happy Eyes", image: "https://previews.123rf.com/images/denisnata/denisnata1803/denisnata180300001/96973751-close-up-front-portrait-of-beautiful-happy-woman-face-with-gray-eyes.jpg" },
-                        { text: "My Favourite Shirt", image: "https://xcdn.next.co.uk/common/items/default/default/itemimages/3_4Ratio/product/lge/D33003s.jpg?im=Resize,width=750" }
+                        { text: "My Happy Eyes", image: "https://previews.123rf.com/images/denisnata/denisnata1803/denisnata180300001/96973751-close-up-front-portrait-of-beautiful-happy-woman-face-with-gray-eyes.jpg" }
                     ]
                 },
                 quiz: {
-                    question: "Today, I did a great job at...",
+                    question: "Today, I... +",
                     options: [
-                        { text: "Helping others", image: "https://www.entrepreneur.com/wp-content/uploads/sites/2/2016/08/20160813000120-GettyImages-486493061.jpeg", correct: true },
-						{ text: "Finishing my homework", image: "https://img.freepik.com/premium-photo/happy-boy-finished-homework_128867-24.jpg", correct: true },
-                        { text: "Trying a new food", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjkGjxGz0kmqUeIg-QBdWfF_DlVRfmGOBoGQ&s", correct: true }
+                        { text: "Helped others", image: "https://www.entrepreneur.com/wp-content/uploads/sites/2/2016/08/20160813000120-GettyImages-486493061.jpeg", correct: true },
+						{ text: "Finished my homework", image: "https://img.freepik.com/premium-photo/happy-boy-finished-homework_128867-24.jpg", correct: true },
+                        { text: "Cleaned my room", image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=800&q=80", correct: true }
                     ]
                 }
             },
@@ -668,11 +674,6 @@ const content = {
 							text: "Candy", 
 							correct: false, 
 							image: "images/candies_16671618.png" 
-						},
-						{ 
-							text: "Burger", 
-							correct: false, 
-							image: "https://cdn-icons-png.flaticon.com/512/3075/3075977.png" 
 						}
 					]
 				},
@@ -865,7 +866,7 @@ function showTopicSelection() {
             // Apply circular styling directly
             img.style.width = '150px';        // Sets a large width
             img.style.height = '150px';       // Sets a large height (must match width)
-            img.style.objectFit = 'cover';    // Prevents stretching
+            img.style.objectFit = 'contain';    // Keeps the full image visible
             img.style.borderRadius = '50%';   // Makes it a circle
             img.style.border = '4px solid #f0f0f0'; // Optional: adds a nice border
             img.style.marginBottom = '15px';
@@ -880,9 +881,8 @@ function showTopicSelection() {
         card.appendChild(titleText);
         // --- UPDATED CODE END ---
 
-        // Keep your existing exclusion logic for the green color
-        const isExcludedSubmodule = [1, 2, 3].includes(currentState.submodule);
-        if (currentState.progress[submoduleKey].includes(topic.id) && !isExcludedSubmodule) {
+        // Mark completed topics with a green card + check icon.
+        if (currentState.progress[submoduleKey].includes(topic.id)) {
             card.classList.add('completed');
         }
         
@@ -1082,7 +1082,7 @@ else if (slide.type === "video") {
         else {
             if (slide.image) {
                 const img = document.createElement('img');
-                
+
                 // If the image is an object { male: "...", female: "..." }
                 if (typeof slide.image === 'object' && slide.image !== null) {
                     const gender = currentState.gender || 'male'; // Fallback to male
@@ -1091,9 +1091,30 @@ else if (slide.type === "video") {
                     // Otherwise it's just a normal string path
                     img.src = slide.image;
                 }
-                
+
                 img.className = 'teach-image';
-                slideDiv.appendChild(img);
+
+                if (Array.isArray(slide.labels) && slide.labels.length > 0) {
+                    // Overlay friendly labels directly on the image for quick scanning.
+                    const wrapper = document.createElement('div');
+                    wrapper.className = 'teach-image-wrapper';
+                    wrapper.appendChild(img);
+
+                    slide.labels.forEach(label => {
+                        const labelEl = document.createElement('button');
+                        labelEl.type = 'button';
+                        labelEl.className = 'image-label';
+                        labelEl.textContent = translateText(label.text);
+                        labelEl.style.left = label.x;
+                        labelEl.style.top = label.y;
+                        labelEl.setAttribute('aria-label', translateText(label.text));
+                        wrapper.appendChild(labelEl);
+                    });
+
+                    slideDiv.appendChild(wrapper);
+                } else {
+                    slideDiv.appendChild(img);
+                }
             }
 
             if (slide.icon) {
@@ -1221,7 +1242,7 @@ function renderClickToReveal(activity, container) {
         img.alt = item.label;
         img.style.width = '100%';
         img.style.height = '350px';
-        img.style.objectFit = 'cover';
+        img.style.objectFit = 'contain';
         img.style.borderRadius = '15px';
 
         const label = document.createElement('div');
@@ -1282,25 +1303,28 @@ function renderEmotionMatch(activity, container) {
         
         card.addEventListener('click', () => {
             const correct = emotion.name === activity.scenarios[currentScenario].emotion;
-            
+            document.querySelectorAll('.emotion-card').forEach(c => c.classList.remove('selected'));
+            card.classList.add('selected');
+
             if (correct) {
-                card.classList.add('selected');
+                card.classList.add('correct');
                 showSuccessFeedback();
-                
+
                 setTimeout(() => {
                     currentScenario++;
                     if (currentScenario < activity.scenarios.length) {
                         // Next scenario
                         scenarioText.textContent = translateText(activity.scenarios[currentScenario].text);
-                        document.querySelectorAll('.emotion-card').forEach(c => c.classList.remove('selected'));
+                        document.querySelectorAll('.emotion-card').forEach(c => c.classList.remove('selected', 'correct'));
                     } else {
                         // Complete
                         document.getElementById('activityNextBtn').classList.remove('hidden');
                     }
                 }, 1000);
             } else {
+                // Neutral feedback for wrong picks.
                 card.classList.add('wrong');
-                setTimeout(() => card.classList.remove('wrong'), 500);
+                setTimeout(() => card.classList.remove('wrong', 'selected'), 600);
             }
         });
         
@@ -1340,11 +1364,12 @@ function renderSelectMultiple(activity, container) {
         
         let selected = false;
         option.addEventListener('click', () => {
+            option.classList.add('selected');
             if (!selected && item.correct) {
-                option.classList.add('selected');
+                option.classList.add('correct');
                 selected = true;
                 selectedCorrect++;
-                
+
                 if (selectedCorrect === correctCount) {
                     setTimeout(() => {
                         completeActivityAndGoToQuiz(); // GO TO QUIZ FIRST
@@ -1352,7 +1377,7 @@ function renderSelectMultiple(activity, container) {
                 }
             } else if (!item.correct) {
                 option.classList.add('wrong');
-                setTimeout(() => option.classList.remove('wrong'), 500);
+                setTimeout(() => option.classList.remove('wrong', 'selected'), 600);
             }
         });
         
@@ -1401,16 +1426,17 @@ function renderTimeline(activity, container) {
         `;
 
         option.addEventListener('click', () => {
+            document.querySelectorAll('.activity-option').forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
+
             if (item.correct) {
-                document.querySelectorAll('.activity-option').forEach(opt => opt.classList.remove('selected'));
-                option.classList.add('selected');
-                
+                option.classList.add('correct');
                 setTimeout(() => {
                     completeActivityAndGoToQuiz(); // GO TO QUIZ FIRST
                 }, 500);
             } else {
                 option.classList.add('wrong');
-                setTimeout(() => option.classList.remove('wrong'), 500);
+                setTimeout(() => option.classList.remove('wrong', 'selected'), 600);
             }
         });
         optionsDiv.appendChild(option);
@@ -1561,7 +1587,7 @@ function renderMultiSelect(activity, container) {
             img.className = 'option-image';
             img.style.width = '100px'; 
             img.style.height = '100px';
-            img.style.objectFit = 'cover';
+            img.style.objectFit = 'contain';
             img.style.borderRadius = '10px';
             option.appendChild(img);
         } else if (item.icon) {
@@ -1580,7 +1606,7 @@ function renderMultiSelect(activity, container) {
             // 1. Toggle the visual selection
             option.classList.toggle('selected');
             
-            // 2. NEW: Play the sound effect based on the text (Happy, Sad, Angry)
+            // 2. NEW: Play the sound effect based on the text (I feel happy/sad/angry)
             // This will look for sounds like "happy.mp3" in your sounds folder
             if (typeof playWordSound === 'function') {
                 playWordSound(item.text.toLowerCase());
@@ -1621,6 +1647,8 @@ function renderCompare(activity, container) {
         option.appendChild(text);
         
         option.addEventListener('click', () => {
+            optionsDiv.querySelectorAll('.activity-option').forEach(opt => opt.classList.remove('selected'));
+            option.classList.add('selected');
             if (item.correct) {
                 option.classList.add('correct');
                 setTimeout(() => {
@@ -1628,7 +1656,7 @@ function renderCompare(activity, container) {
                 }, 800);
             } else {
                 option.classList.add('wrong');
-                setTimeout(() => option.classList.remove('wrong'), 500);
+                setTimeout(() => option.classList.remove('wrong', 'selected'), 600);
             }
         });
         
@@ -1709,6 +1737,10 @@ function goToQuiz() {
 }
 
 function handleQuizAnswer(isCorrect, element) {
+    const options = element.parentElement?.querySelectorAll('.quiz-option') || [];
+    options.forEach(option => option.classList.remove('selected'));
+    element.classList.add('selected');
+
     if (isCorrect) {
         // Play sound effect for correct answer
         playCorrectSound();
@@ -1727,10 +1759,7 @@ function handleQuizAnswer(isCorrect, element) {
             }, 1000);
         } else {
             // End of quiz: Save progress and GO HOME automatically
-            if (!currentState.progress[submoduleKey].includes(currentState.topic)) {
-                currentState.progress[submoduleKey].push(currentState.topic);
-                saveProgress();
-            }
+            markTopicCompleted();
             currentState.quizSlide = 0; // Reset for next time
             
             // Instead of going to completion screen, go straight home with celebration
@@ -1740,7 +1769,7 @@ function handleQuizAnswer(isCorrect, element) {
         }
     } else {
         element.classList.add('wrong');
-        setTimeout(() => element.classList.remove('wrong'), 500);
+        setTimeout(() => element.classList.remove('wrong', 'selected'), 600);
     }
 }
 
@@ -1797,6 +1826,14 @@ function backToTopics() {
 function updateProgress(current, total) {
     const percentage = (current / total) * 100;
     document.getElementById('progressFill').style.width = `${percentage}%`;
+}
+
+function markTopicCompleted() {
+    const submoduleKey = `submodule${currentState.submodule}`;
+    if (!currentState.progress[submoduleKey].includes(currentState.topic)) {
+        currentState.progress[submoduleKey].push(currentState.topic);
+        saveProgress();
+    }
 }
 
 function showSuccessFeedback() {
@@ -1944,7 +1981,7 @@ function renderSequenceActivity(activity, container) {
         stepEl.style.backgroundColor = '#fff';
 
         if (step.visible) {
-            stepEl.innerHTML = `<img src="${step.image}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px;">`;
+            stepEl.innerHTML = `<img src="${step.image}" style="width: 120px; height: 120px; object-fit: contain; border-radius: 8px;">`;
         } else {
             stepEl.innerHTML = `<div class="sequence-placeholder" style="font-size: 50px; line-height: 120px; color: #aaa;">${step.placeholder}</div>`;
             stepEl.id = "missing-step-placeholder";
@@ -1986,7 +2023,7 @@ function renderSequenceActivity(activity, container) {
         card.style.border = '5px solid #eee'; // WIDER BORDER
         
         card.innerHTML = `
-            <img src="${choice.image}" style="width: 150px; height: 150px; object-fit: cover; border-radius: 10px; margin-bottom: 10px;">
+            <img src="${choice.image}" style="width: 150px; height: 150px; object-fit: contain; border-radius: 10px; margin-bottom: 10px;">
             <div class="option-text" style="font-weight: bold; font-size: 18px;">${translateText(choice.text)}</div>
         `;
 
@@ -2012,17 +2049,16 @@ function renderSequenceActivity(activity, container) {
 
         // --- CLICK EFFECT ---
         card.onclick = () => {
+            optionsDiv.querySelectorAll('.activity-option').forEach(opt => opt.classList.remove('selected'));
+            card.classList.add('selected');
             if (choice.correct) {
-                card.classList.add('selected');
-                card.style.backgroundColor = '#3498db'; // Solid Blue when correct
-                card.style.color = '#ffffff';
-                card.style.borderColor = '#2980b9';
-                card.style.transform = 'scale(1.05)'; 
+                card.classList.add('correct');
+                card.style.transform = 'scale(1.05)';
 
                 const placeholder = document.getElementById('missing-step-placeholder');
                 if (placeholder) {
-                    placeholder.innerHTML = `<img src="${choice.image}" style="width: 120px; height: 120px; object-fit: cover; border-radius: 8px;">`;
-                    placeholder.style.borderColor = '#3498db'; // Highlight the revealed step
+                    placeholder.innerHTML = `<img src="${choice.image}" style="width: 120px; height: 120px; object-fit: contain; border-radius: 8px;">`;
+                    placeholder.style.borderColor = '#2fbf96'; // Keep feedback consistent and calm.
                 }
 
                 // Reward sequence
@@ -2031,19 +2067,15 @@ function renderSequenceActivity(activity, container) {
                 window.speechSynthesis.speak(msg);
 
                 setTimeout(() => {
+                    markTopicCompleted(); // Persist completion before returning.
                     goHome();
                 }, 2000);
 
             } else {
                 card.classList.add('wrong');
-                card.style.backgroundColor = '#ff6b6b'; 
-                card.style.borderColor = '#c0392b';
                 setTimeout(() => {
-                    card.classList.remove('wrong');
-                    card.style.backgroundColor = '#fff';
-                    card.style.borderColor = '#eee';
-                    card.style.color = '#000';
-                }, 500);
+                    card.classList.remove('wrong', 'selected');
+                }, 600);
             }
         };
         optionsDiv.appendChild(card);
@@ -2058,7 +2090,7 @@ function checkSequenceChoice(buttonElement, isCorrect, correctImageUrl) {
         // 1. Fill the slot
         const missingSlot = document.getElementById('step-2');
         if (missingSlot) {
-            missingSlot.innerHTML = `<img src="${correctImageUrl}" style="width: 100%; height: 100%; object-fit: cover;">`;
+            missingSlot.innerHTML = `<img src="${correctImageUrl}" style="width: 100%; height: 100%; object-fit: contain;">`;
             missingSlot.style.border = "5px solid #4CAF50";
         }
 
@@ -2077,8 +2109,8 @@ function checkSequenceChoice(buttonElement, isCorrect, correctImageUrl) {
         }, 3000);
 
     } else {
-        buttonElement.classList.add('shake'); 
-        setTimeout(() => buttonElement.classList.remove('shake'), 500);
+        buttonElement.classList.add('selected', 'wrong');
+        setTimeout(() => buttonElement.classList.remove('selected', 'wrong'), 600);
     }
 }
 
@@ -2135,6 +2167,7 @@ function handleBagChoice(button, isCorrect, imageUrl) {
 
         // 2. Success effects
         showSuccess();
+        markTopicCompleted(); // Save completion state.
         
         // 3. Jump Back to Submodule 2
         setTimeout(() => {
@@ -2145,9 +2178,9 @@ function handleBagChoice(button, isCorrect, imageUrl) {
             showScreen('topicScreen');
         }, 3000);
     } else {
-        // Simple shake for incorrect
-        button.classList.add('shake');
-        setTimeout(() => button.classList.remove('shake'), 500);
+        // Neutral feedback for incorrect taps
+        button.classList.add('selected', 'wrong');
+        setTimeout(() => button.classList.remove('selected', 'wrong'), 600);
     }
 }
 
@@ -2283,15 +2316,18 @@ function showActivity() {
             `;
 
             card.onclick = () => {
+                rightSide.querySelectorAll('.activity-option').forEach(opt => opt.classList.remove('selected'));
+                card.classList.add('selected');
                 if (choice.correct) {
                     card.classList.add('correct');
                     triggerStars(); // Shows success-stars
+                    markTopicCompleted(); // Ensure completion is saved.
                     setTimeout(() => {
                         goHome(); // Jumps back to main page
                     }, 2500);
                 } else {
                     card.classList.add('wrong');
-                    setTimeout(() => card.classList.remove('wrong'), 500);
+                    setTimeout(() => card.classList.remove('wrong', 'selected'), 600);
                 }
             };
             rightSide.appendChild(card);
@@ -2365,14 +2401,14 @@ function renderShowerKitMatch(activity, container) {
             if (choice.correct) {
                 // Play correct sound
                 playCorrectSound();
-                card.classList.add('correct');
+                card.classList.add('selected', 'correct');
                 triggerStars();
+                markTopicCompleted(); // Save completion before returning home.
                 setTimeout(() => goHome(), 2500);
             } else {
-                // Play wrong sound
-                playWrongSound();
-                card.classList.add('wrong');
-                setTimeout(() => card.classList.remove('wrong'), 500);
+                // Neutral feedback for wrong taps.
+                card.classList.add('selected', 'wrong');
+                setTimeout(() => card.classList.remove('wrong', 'selected'), 600);
                 // Restart timer if they got it wrong so they get a hint again
                 resetPromptTimeout();
             }
@@ -2502,9 +2538,10 @@ if (quizData.image) {
 
         // Add a slight "pop" effect when clicking
         card.onclick = () => {
+            optionsDiv.querySelectorAll('.activity-option').forEach(opt => opt.classList.remove('selected'));
+            card.classList.add('selected');
             card.style.transform = 'scale(0.95)';
             if (quizData.type === "subjective") {
-                card.classList.add('selected');
                 handleQuizTransition(topic);
             } else {
                 if (choice.correct) {
@@ -2513,9 +2550,9 @@ if (quizData.image) {
                 } else {
                     card.classList.add('wrong');
                     setTimeout(() => {
-                        card.classList.remove('wrong');
+                        card.classList.remove('wrong', 'selected');
                         card.style.transform = 'scale(1)';
-                    }, 500);
+                    }, 600);
                 }
             }
         };
@@ -2538,6 +2575,7 @@ function handleQuizTransition(topic) {
         // Optional: Play a congratulatory voice message
         const msg = new SpeechSynthesisUtterance(translateText("Congratulations! You completed this topic!"));
         window.speechSynthesis.speak(msg);
+        markTopicCompleted(); // Persist completion for this flow.
         
         // Wait for 2 seconds to show stars/feedback, then jump back to main page
         setTimeout(() => {
@@ -2564,13 +2602,8 @@ function completeActivityAndGoToQuiz() {
 }
 
 function completeActivityAndGoHome() {
-    const submoduleKey = `submodule${currentState.submodule}`;
-    
     // Save progress if not already saved
-    if (!currentState.progress[submoduleKey].includes(currentState.topic)) {
-        currentState.progress[submoduleKey].push(currentState.topic);
-        saveProgress();
-    }
+    markTopicCompleted();
     
     // Play completion sound (can be different from correct sound)
     playCompletionSound();
@@ -2672,13 +2705,18 @@ function playWordSound(word) {
             'body-hair': 'sounds/grow-body-hair.mp3',
             'happy': 'sounds/laughing.mp3',
             'angry': 'sounds/angry.mp3',
-            'sad': 'sounds/sad.mp3'
+            'sad': 'sounds/sad.mp3',
+            'i feel happy': 'sounds/laughing.mp3',
+            'i feel angry': 'sounds/angry.mp3',
+            'i feel sad': 'sounds/sad.mp3'
         };
         
-        const soundFile = soundMap[word.toLowerCase()];
+        const soundKey = word.toLowerCase();
+        const soundFile = soundMap[soundKey];
         if (soundFile) {
             const audio = new Audio(soundFile);
-            audio.volume = 0.7;
+            // Boost key hygiene items for clearer audio across devices.
+            audio.volume = ['soap', 'towel'].includes(soundKey) ? 1 : 0.7;
             audio.play();
         }
     } catch (e) {
@@ -2710,11 +2748,11 @@ function triggerHint() {
         "Which picture shows a body change during puberty?": "Growing Taller",
         "Choose me!": "Boy",
         "Touch your forehead. How does your skin feel to your fingers?": "Smooth and Dry!",
-        "How much power does your 'Body Battery' have right now?": "100%",
+        "How much power do you have now?": "100%",
         "When does body hair appear?": "After Puberty",
         "When does a person have short legs?": "Before Puberty",
         "Which is the essential kit in taking shower?": "Soap",
-        "Which shows positive body image?": "My body is strong",
+        "Which shows positive body image? +": "My body is strong",
         "What does sleep give you?": "Energy",
         "Tap the HEALTHY foods!": ["Vegetables", "Fruits"], 
         "Which food help you grow strong?": "Vegetables"

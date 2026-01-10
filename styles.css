@@ -264,6 +264,7 @@ body::after {
     font-size: 20px;
     color: var(--text);
     font-weight: 600;
+    position: relative;
 }
 
 .topic-card:hover {
@@ -273,13 +274,17 @@ body::after {
 }
 
 .topic-card.completed {
-    background: linear-gradient(135deg, #36d1a8, #1fba95);
-    color: white;
+    background: #e6fbf4;
+    border-color: #3cc9a8;
+    color: var(--text);
 }
 
 .topic-card.completed::after {
-    content: ' ✓';
-    font-size: 28px;
+    content: '✔️';
+    font-size: 22px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
 }
 
 /* Content Area */
@@ -322,6 +327,34 @@ body::after {
     margin: 20px auto;
     display: block;
     box-shadow: var(--shadow-soft);
+    object-fit: contain;
+}
+
+.teach-image-wrapper {
+    position: relative;
+    display: inline-block;
+    width: min(100%, 420px);
+    margin: 0 auto;
+}
+
+.image-label {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    background: rgba(47, 123, 246, 0.12);
+    border: 2px solid rgba(47, 123, 246, 0.35);
+    color: var(--text);
+    border-radius: 999px;
+    padding: 8px 14px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform var(--transition), box-shadow var(--transition);
+}
+
+.image-label:hover,
+.image-label:focus {
+    transform: translate(-50%, -50%) scale(1.05);
+    box-shadow: 0 6px 16px rgba(31, 45, 61, 0.12);
 }
 
 .teach-text {
@@ -362,7 +395,9 @@ body::after {
 }
 
 .activity-option.wrong {
-    animation: shake 0.5s;
+    border-color: #d7dde7;
+    background: #f7f9fc;
+    box-shadow: none;
 }
 
 @keyframes shake {
@@ -372,14 +407,14 @@ body::after {
 }
 
 .activity-option.correct {
-    background: #bff3e6;
-    border-color: var(--secondary);
-    animation: glow 0.8s;
+    background: #ecfbf6;
+    border-color: #2fbf96;
+    animation: softGlow 0.8s ease;
 }
 
-@keyframes glow {
-    0%, 100% { box-shadow: 0 0 20px rgba(76, 175, 80, 0.5); }
-    50% { box-shadow: 0 0 40px rgba(76, 175, 80, 0.9); }
+@keyframes softGlow {
+    0%, 100% { box-shadow: 0 0 12px rgba(47, 191, 150, 0.25); }
+    50% { box-shadow: 0 0 22px rgba(47, 191, 150, 0.4); }
 }
 
 .option-image {
@@ -387,6 +422,7 @@ body::after {
     max-height: 200px;
     border-radius: 12px;
     margin-bottom: 15px;
+    object-fit: contain;
 }
 
 .option-text {
@@ -448,20 +484,19 @@ body::after {
 }
 
 .quiz-option.wrong {
-    animation: shake 0.5s;
-    border-color: #e1e7f0;
+    border-color: #d7dde7;
+    background: #f7f9fc;
+}
+
+.quiz-option.selected {
+    border-color: #8fcdf0;
+    box-shadow: 0 0 0 3px rgba(47, 123, 246, 0.15);
 }
 
 .quiz-option.correct {
-    background: #bff3e6;
-    border-color: var(--secondary);
-    animation: correctAnswer 0.8s;
-}
-
-@keyframes correctAnswer {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.15); }
-    100% { transform: scale(1.1); }
+    background: #ecfbf6;
+    border-color: #2fbf96;
+    animation: softGlow 0.8s ease;
 }
 
 /* Next Button */
@@ -781,7 +816,8 @@ body::after {
     width: 180px;         /* Adjust size as needed */
     height: 180px;        /* Must be same as width for a perfect circle */
     border-radius: 50%;   /* Makes it round */
-    object-fit: cover;    /* Ensures image isn't stretched */
+    object-fit: contain;    /* Ensures image isn't cropped */
+    background: #f7f9fc;
     border: 4px solid rgba(255, 255, 255, 0.7);
     margin-bottom: 15px;
     display: block;
@@ -1058,7 +1094,7 @@ body::after {
 
 .shake {
     animation: shake 0.4s ease-in-out !important;
-    border-color: #ff4444 !important; /* Turns red briefly */
+    border-color: #d7dde7 !important;
 }
 
 .activity-wrapper {
@@ -1164,6 +1200,7 @@ body::after {
     max-width: 40%;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-soft);
+    object-fit: contain;
 }
 
 /* Animation for tools popping up */
@@ -1186,6 +1223,7 @@ body::after {
     max-width: 40%;
     border-radius: var(--radius-md);
     box-shadow: var(--shadow-soft);
+    object-fit: contain;
     
     /* Move the image upwards */
     position: relative;
@@ -1210,9 +1248,9 @@ body::after {
 }
 
 .activity-option.correct {
-    background: #bff3e6;
-    border-color: var(--secondary);
-    animation: glow 0.8s;
+    background: #ecfbf6;
+    border-color: #2fbf96;
+    animation: softGlow 0.8s ease;
 }
 
 /* Ensure images fit well in the boxes */
@@ -1221,6 +1259,7 @@ body::after {
     height: auto;
     display: block;
     margin: 0 auto 10px;
+    object-fit: contain;
 }
 
 /* Add this to your styles.css */
