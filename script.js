@@ -350,9 +350,9 @@ const content = {
 					question: "Touch your forehead. How does your skin feel to your fingers?",
 					image: "images/kais.jpg", // The single large image
 					options: [
-						{ text: "Smooth and Dry!", image: "https://img.freepik.com/free-photo/close-up-portrait-gorgeous-young-woman_273609-40846.jpg?semt=ais_hybrid&w=740&q=80" },
-						{ text: "Silky or Oily", image: "https://img.freepik.com/free-photo/angry-pretty-woman-looking-camera-frowning_1262-18368.jpg?semt=ais_hybrid&w=740&q=80" },
-						{ text: "Bumpy and Itchy", image: "https://grahamstoney.com/wp-content/uploads/Angry-Man-1024x712.jpeg" }
+						{ text: "Smooth and Dry!", image: "images/male1.jpg" },
+						{ text: "Silky or Oily", image: "images/male2.jpg" },
+						{ text: "Bumpy and Itchy", image: "images/male3.jpg" }
 					]
 				}, 
 				{
@@ -2721,3 +2721,4 @@ function triggerHint() {
     // hints are only provided for correct answers.
 
 }
+
