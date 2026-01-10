@@ -16,17 +16,18 @@
     --secondary: #19b89a;
     --text: #1e2a3b;
     --muted: #5b6b7f;
-    --shadow-soft: 0 12px 30px rgba(31, 45, 61, 0.12);
-    --shadow-strong: 0 18px 40px rgba(31, 45, 61, 0.18);
-    --radius-lg: 28px;
-    --radius-md: 18px;
-    --radius-sm: 12px;
-    --transition: 0.25s ease;
+    --shadow-soft: 0 10px 22px rgba(31, 45, 61, 0.08);
+    --shadow-strong: 0 14px 28px rgba(31, 45, 61, 0.12);
+    --radius-lg: 30px;
+    --radius-md: 20px;
+    --radius-sm: 14px;
+    --radius-blob: 28px 32px 26px 30px; /* softer sticker-like corners */
+    --transition: 0.3s ease;
 }
 
 body {
     font-family: 'Outfit', 'Nunito', 'Segoe UI', sans-serif;
-    background: radial-gradient(circle at top, #ffffff 0%, var(--bg) 45%, #d7e8ff 100%);
+    background: radial-gradient(circle at top, #ffffff 0%, var(--bg) 55%, #deecff 100%);
     color: var(--text);
     min-height: 100vh;
     overflow-x: hidden;
@@ -40,9 +41,9 @@ body::after {
     width: 320px;
     height: 320px;
     border-radius: 50%;
-    background: radial-gradient(circle, rgba(47, 123, 246, 0.18), transparent 70%);
+    background: radial-gradient(circle, rgba(47, 123, 246, 0.12), transparent 70%);
     z-index: 0;
-    filter: blur(2px);
+    filter: blur(6px); /* softer background glow */
 }
 
 body::before {
@@ -53,7 +54,7 @@ body::before {
 body::after {
     bottom: -120px;
     left: -100px;
-    background: radial-gradient(circle, rgba(25, 184, 154, 0.18), transparent 70%);
+    background: radial-gradient(circle, rgba(25, 184, 154, 0.12), transparent 70%);
 }
 
 /* Navigation Bar */
@@ -63,9 +64,9 @@ body::after {
     left: 0;
     width: 100%;
     padding: 15px 20px;
-    background: rgba(255, 255, 255, 0.65);
+    background: rgba(255, 255, 255, 0.7);
     backdrop-filter: blur(16px);
-    box-shadow: 0 10px 30px rgba(31, 45, 61, 0.1);
+    box-shadow: 0 8px 18px rgba(31, 45, 61, 0.08);
     z-index: 1000;
 }
 
@@ -81,8 +82,8 @@ body::after {
     gap: 10px;
     background: var(--surface);
     padding: 8px 14px;
-    border-radius: var(--radius-md);
-    box-shadow: 0 6px 14px rgba(31, 45, 61, 0.1);
+    border-radius: var(--radius-blob);
+    box-shadow: var(--shadow-soft);
 }
 
 .language-picker label {
@@ -95,7 +96,7 @@ body::after {
 
 .language-picker select {
     border-radius: 999px;
-    border: 1px solid #d2dbea;
+    border: 1px solid rgba(210, 220, 234, 0.8);
     padding: 6px 14px;
     font-size: 15px;
     background: var(--surface);
@@ -108,7 +109,7 @@ body::after {
     background: linear-gradient(135deg, var(--primary), var(--primary-strong));
     border: none;
     padding: 12px 20px;
-    border-radius: 16px;
+    border-radius: 999px; /* round toy button */
     cursor: pointer;
     font-size: 24px;
     transition: transform var(--transition), box-shadow var(--transition);
@@ -117,12 +118,25 @@ body::after {
 }
 
 .nav-btn:hover {
-    transform: translateY(-2px) scale(1.03);
+    transform: scale(1.03); /* gentle hover */
     box-shadow: var(--shadow-strong);
 }
 
 .nav-btn:active {
-    transform: translateY(0) scale(0.98);
+    transform: scale(0.98);
+}
+
+button:focus-visible,
+select:focus-visible,
+.submodule-card:focus-visible,
+.topic-card:focus-visible,
+.activity-option:focus-visible,
+.quiz-option:focus-visible,
+.emotion-card:focus-visible,
+.timeline-stage:focus-visible,
+.completion-btn:focus-visible {
+    outline: 3px solid rgba(47, 123, 246, 0.35); /* clear, calm focus ring */
+    outline-offset: 4px;
 }
 
 .home-icon {
@@ -213,7 +227,7 @@ body::after {
 .submodule-card {
     background: var(--surface);
     border: 1px solid rgba(210, 220, 234, 0.6);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-blob); /* sticker-like card edge */
     padding: 40px 28px;
     cursor: pointer;
     transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
@@ -223,7 +237,7 @@ body::after {
 }
 
 .submodule-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-4px) scale(1.02);
     box-shadow: var(--shadow-strong);
     border-color: rgba(47, 123, 246, 0.4);
 }
@@ -256,7 +270,7 @@ body::after {
 .topic-card {
     background: var(--surface);
     border: 1px solid rgba(210, 220, 234, 0.6);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-blob); /* softer touch target */
     padding: 32px 24px;
     cursor: pointer;
     transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
@@ -268,7 +282,7 @@ body::after {
 }
 
 .topic-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-3px) scale(1.02);
     box-shadow: var(--shadow-strong);
     border-color: rgba(25, 184, 154, 0.4);
 }
@@ -290,7 +304,7 @@ body::after {
 /* Content Area */
 .content-area {
     background: var(--surface);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-blob); /* soft container */
     padding: 40px;
     min-height: 400px;
     box-shadow: var(--shadow-soft);
@@ -353,8 +367,8 @@ body::after {
 
 .image-label:hover,
 .image-label:focus {
-    transform: translate(-50%, -50%) scale(1.05);
-    box-shadow: 0 6px 16px rgba(31, 45, 61, 0.12);
+    transform: translate(-50%, -50%) scale(1.03);
+    box-shadow: var(--shadow-soft);
 }
 
 .teach-text {
@@ -383,7 +397,7 @@ body::after {
 }
 
 .activity-option:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px) scale(1.02);
     border-color: var(--secondary);
     box-shadow: var(--shadow-soft);
 }
@@ -391,7 +405,7 @@ body::after {
 .activity-option.selected {
     background: #def8f2;
     border-color: var(--secondary);
-    box-shadow: 0 0 20px rgba(25, 184, 154, 0.35);
+    box-shadow: 0 0 14px rgba(25, 184, 154, 0.25);
 }
 
 .activity-option.wrong {
@@ -402,8 +416,8 @@ body::after {
 
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    75% { transform: translateX(10px); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
 }
 
 .activity-option.correct {
@@ -464,7 +478,7 @@ body::after {
 }
 
 .quiz-option:hover {
-    transform: translateY(-6px);
+    transform: translateY(-3px) scale(1.02);
     border-color: var(--primary);
 }
 
@@ -475,11 +489,11 @@ body::after {
 @keyframes pulse {
     0%, 100% {
         transform: scale(1);
-        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+        box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.18);
     }
     50% {
-        transform: scale(1.05);
-        box-shadow: 0 0 20px 10px rgba(76, 175, 80, 0);
+        transform: scale(1.02);
+        box-shadow: 0 0 12px rgba(76, 175, 80, 0.2);
     }
 }
 
@@ -512,14 +526,14 @@ body::after {
     cursor: pointer;
     font-size: 40px;
     color: white;
-    box-shadow: 0 16px 35px rgba(25, 184, 154, 0.35);
+    box-shadow: 0 14px 28px rgba(25, 184, 154, 0.28);
     transition: transform var(--transition), box-shadow var(--transition);
     z-index: 100;
 }
 
 .next-btn:hover {
-    transform: translateY(-4px) scale(1.05);
-    box-shadow: 0 20px 40px rgba(25, 184, 154, 0.45);
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 18px 34px rgba(25, 184, 154, 0.35);
 }
 
 .next-btn:active {
@@ -543,12 +557,12 @@ body::after {
 .celebration {
     font-size: 120px;
     margin: 30px 0;
-    animation: bounce 1s infinite;
+    animation: bounce 2.4s ease-in-out infinite; /* slower, calmer motion */
 }
 
 @keyframes bounce {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-20px); }
+    50% { transform: translateY(-6px); } /* gentle float instead of bounce */
 }
 
 .completion-title {
@@ -588,7 +602,7 @@ body::after {
 }
 
 .completion-btn:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: var(--shadow-strong);
     background: var(--secondary);
     color: white;
@@ -668,7 +682,7 @@ body::after {
 }
 
 .emotion-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px) scale(1.02);
     border-color: var(--secondary);
     box-shadow: var(--shadow-soft);
 }
@@ -709,7 +723,7 @@ body::after {
 }
 
 .timeline-stage:hover {
-    transform: scale(1.1);
+    transform: scale(1.03);
 }
 
 .timeline-icon {
@@ -724,11 +738,11 @@ body::after {
 }
 
 .timeline-stage.selected {
-    transform: scale(1.2);
+    transform: scale(1.03);
 }
 
 .timeline-stage.selected .timeline-icon {
-    filter: drop-shadow(0 0 15px rgba(76, 175, 80, 0.8));
+    filter: drop-shadow(0 0 12px rgba(25, 184, 154, 0.35));
 }
 
 /* Routine Builder */
@@ -796,14 +810,14 @@ body::after {
 /* Update this in styles.css */
 @keyframes hintPulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.1); box-shadow: 0 0 25px rgba(76, 175, 80, 0.6); }
+    50% { transform: scale(1.02); box-shadow: 0 0 16px rgba(76, 175, 80, 0.2); }
     100% { transform: scale(1); }
 }
 
 .visual-hint {
     animation: hintPulse 1s infinite ease-in-out !important;
-    border: 6px solid var(--secondary) !important; /* Green highlight to guide them */
-    background-color: #e9fbf7 !important;
+    border: 4px solid rgba(25, 184, 154, 0.45) !important; /* softer guidance ring */
+    background-color: #eefbf7 !important;
 }
 
 /* Add to styles.css */
@@ -817,13 +831,13 @@ body::after {
     height: 180px;        /* Must be same as width for a perfect circle */
     border-radius: 50%;   /* Makes it round */
     object-fit: contain;    /* Ensures image isn't cropped */
-    background: #f7f9fc;
-    border: 4px solid rgba(255, 255, 255, 0.7);
+    background: var(--bg-accent); /* soft sticker backing */
+    border: 4px solid rgba(255, 255, 255, 0.8);
     margin-bottom: 15px;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    box-shadow: 0 10px 20px rgba(31, 45, 61, 0.15);
+    box-shadow: 0 8px 16px rgba(31, 45, 61, 0.12);
 }
 
 /* Ensure the card doesn't have extra padding that hides the roundness */
@@ -834,22 +848,19 @@ body::after {
     padding: 32px;
     border: 1px solid rgba(210, 220, 234, 0.6);
     background: var(--surface);
-    border-radius: var(--radius-lg);
+    border-radius: var(--radius-blob);
     cursor: pointer;
 }
 
 @keyframes pulse {
-    0% { transform: scale(1); }
-    30% { transform: scale(1.1); }
-    50% { transform: scale(1); }
-    70% { transform: scale(1.05); }
-    100% { transform: scale(1); }
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
 }
 
 .pulse {
     animation: pulse 1.5s infinite ease-in-out !important;
     /* This ensures the round image pulses nicely without a border */
-    filter: drop-shadow(0 0 15px rgba(25, 184, 154, 0.5)); 
+    filter: drop-shadow(0 0 10px rgba(25, 184, 154, 0.25)); 
     z-index: 10;
 }
 
@@ -1019,7 +1030,7 @@ body::after {
     animation: pulse 1.5s infinite ease-in-out;
     
     /* Adds a soft glow that fits the autism-friendly theme */
-    box-shadow: 0 12px 25px rgba(47, 123, 246, 0.35); 
+    box-shadow: 0 10px 18px rgba(47, 123, 246, 0.22); 
 }
 
 /* Ensure the arrows inside stay centered */
@@ -1030,9 +1041,8 @@ body::after {
 
 /* If you haven't defined the pulse animation yet, add this too: */
 @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.1); } /* Gets bigger */
-    100% { transform: scale(1); } /* Gets smaller */
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.02); }
 }
 
 .missing-step {
@@ -1053,12 +1063,12 @@ body::after {
 }
 
 .choice-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     background-color: #e9fbf7;
 }
 
 .choice-card:active {
-    transform: scale(0.95);
+    transform: scale(0.98);
 }
 
 /* Ensure the success overlay works for this stage */
@@ -1082,18 +1092,18 @@ body::after {
     border: 3px solid var(--secondary) !important;
     border-radius: 25px !important;
     background: var(--surface);
-    transition: transform 0.2s;
+    transition: transform 0.3s ease;
     animation: pulse 1.5s infinite ease-in-out; /* Keeps them pulsing until clicked */
 }
 
 @keyframes shake {
     0%, 100% { transform: translateX(0); }
-    25% { transform: translateX(-10px); }
-    75% { transform: translateX(10px); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
 }
 
 .shake {
-    animation: shake 0.4s ease-in-out !important;
+    animation: shake 0.6s ease-in-out !important;
     border-color: #d7dde7 !important;
 }
 
@@ -1117,13 +1127,13 @@ body::after {
 
 .success-stars {
     font-size: 100px;
-    animation: celebrate 1s ease-out infinite;
+    animation: celebrate 2s ease-in-out infinite;
 }
 
 @keyframes celebrate {
-    0% { transform: scale(0.8) rotate(-10deg); }
-    50% { transform: scale(1.2) rotate(10deg); }
-    100% { transform: scale(0.8) rotate(-10deg); }
+    0% { transform: scale(0.95) rotate(-6deg); }
+    50% { transform: scale(1.05) rotate(6deg); }
+    100% { transform: scale(0.95) rotate(-6deg); }
 }
 
 .target-container {
@@ -1132,9 +1142,8 @@ body::after {
 }
 
 @keyframes bounceIn {
-    0% { transform: scale(0); }
-    70% { transform: scale(1.2); }
-    100% { transform: scale(1); }
+    0% { transform: scale(0.96); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 .revealed-tool-card {
@@ -1148,8 +1157,8 @@ body::after {
 }
 
 @keyframes popUp {
-    0% { transform: scale(0); }
-    100% { transform: scale(1); }
+    0% { transform: scale(0.96); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 #activityScreen #activityNextBtn {
@@ -1162,10 +1171,8 @@ body::after {
 }
 
 @keyframes bounceIn {
-    0% { opacity: 0; transform: scale(0.3); }
-    50% { opacity: 1; transform: scale(1.05); }
-    70% { transform: scale(0.9); }
-    100% { transform: scale(1); }
+    0% { opacity: 0; transform: scale(0.96); }
+    100% { opacity: 1; transform: scale(1); }
 }
 
 .activity-option.selected {
@@ -1190,7 +1197,7 @@ body::after {
 .reveal-action-btn {
     display: block;
     margin: 20px auto;
-    background: linear-gradient(135deg, #ffb347, #ff8a00);
+    background: linear-gradient(135deg, var(--primary), var(--primary-strong)); /* keep palette calm */
     color: white;
     font-weight: bold;
 }
@@ -1215,7 +1222,7 @@ body::after {
 }
 
 @keyframes popUp {
-    0% { transform: scale(0); opacity: 0; }
+    0% { transform: scale(0.96); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
 }
 
@@ -1303,9 +1310,9 @@ body::after {
 }
 
 .gender-card:hover {
-    transform: scale(1.05);
+    transform: scale(1.02);
     border-color: var(--secondary);
-    box-shadow: 0 12px 25px rgba(25, 184, 154, 0.25);
+    box-shadow: 0 10px 20px rgba(25, 184, 154, 0.2);
 }
 
 .gender-img {
@@ -1325,7 +1332,7 @@ body::after {
 .topic-card {
     background: var(--surface);
     border: 2px solid #e1e7f0;
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-blob);
     padding: 25px;
     display: flex;
     flex-direction: column;
@@ -1339,14 +1346,14 @@ body::after {
 }
 
 .topic-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-2px) scale(1.02);
     box-shadow: var(--shadow-strong);
 }
 
 /* The resize animation */
 @keyframes randomlyResize {
     0% { transform: scale(1); }
-    50% { transform: scale(1.08); }
+    50% { transform: scale(1.02); }
     100% { transform: scale(1); }
 }
 
@@ -1439,25 +1446,25 @@ body::after {
 .pulse-hint {
     animation: pointToCorrect 1.5s infinite ease-in-out;
     border: 4px solid var(--secondary) !important; /* Green border to signal correctness */
-    box-shadow: 0 0 20px rgba(25, 184, 154, 0.4);
+    box-shadow: 0 0 14px rgba(25, 184, 154, 0.25);
 }
 
 @keyframes pointToCorrect {
     0% { transform: scale(1); }
-    50% { transform: scale(1.1); } /* Grows slightly */
+    50% { transform: scale(1.02); } /* gentle cue */
     100% { transform: scale(1); }
 }
 /* Targeted Hint Style */
 .pulse {
     animation: hintPulse 1.5s infinite ease-in-out;
-    border: 5px solid #FFD700 !important; /* Gold Hint Border */
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+    border: 3px solid #FFD700 !important; /* softer hint ring */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.35);
     transition: transform 0.3s ease;
 }
 
 @keyframes hintPulse {
     0% { transform: scale(1); }
-    50% { transform: scale(1.05); }
+    50% { transform: scale(1.02); }
     100% { transform: scale(1); }
 }
 
