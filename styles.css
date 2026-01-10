@@ -1405,7 +1405,6 @@ select:focus-visible,
     cursor: pointer;
     border: 2px solid rgba(47, 123, 246, 0.25);
     transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
-    animation: washFacePulse 1.8s ease-in-out infinite;
 }
 
 .strip-step.is-clickable:hover {
@@ -1414,15 +1413,19 @@ select:focus-visible,
     border-color: rgba(47, 123, 246, 0.5);
 }
 
+.strip-step.wash-face-hint {
+    animation: washFacePulse 1.8s ease-in-out infinite;
+}
+
 .click-hint {
     position: absolute;
     top: 12px;
     right: 12px;
     background: rgba(47, 123, 246, 0.12);
     color: var(--primary-strong);
-    font-size: 12px;
+    font-size: 18px;
     font-weight: 700;
-    padding: 6px 10px;
+    padding: 4px 8px;
     border-radius: 999px;
     letter-spacing: 0.04em;
     text-transform: uppercase;

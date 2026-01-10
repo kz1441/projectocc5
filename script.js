@@ -138,8 +138,7 @@ const translations = {
         "Congratulations!": "Tahniah!",
         "Congratulations! You completed this topic!": "Tahniah! Kamu sudah tamatkan topik ini.",
         "Great job! You finished this topic.": "Syabas! Kamu sudah tamatkan topik ini.",
-        "Back": "Kembali",
-        "Tap to view": "Ketik untuk lihat"
+        "Back": "Kembali"
     },
     zh: {
         "Language": "语言",
@@ -259,8 +258,7 @@ const translations = {
         "Congratulations!": "恭喜！",
         "Congratulations! You completed this topic!": "恭喜！你完成了这个主题！",
         "Great job! You finished this topic.": "做得好！你完成了这个主题。",
-        "Back": "返回",
-        "Tap to view": "点击查看"
+        "Back": "返回"
     }
 };
 
@@ -1121,10 +1119,10 @@ else if (slide.type === "strip") {
             stepDiv.setAttribute('role', 'button');
             stepDiv.setAttribute('tabindex', '0');
             stepDiv.classList.add('wash-face-hint');
-            stepDiv.setAttribute('aria-label', translateText("Tap to view"));
+            stepDiv.setAttribute('aria-label', translateText("Wash Face"));
             const hintBadge = document.createElement('span');
             hintBadge.className = 'click-hint';
-            hintBadge.textContent = translateText("Tap to view");
+            hintBadge.textContent = '👆';
             stepDiv.appendChild(hintBadge);
             const handleOpen = () => openWashFaceModal(step.modalImages);
             stepDiv.addEventListener('click', handleOpen);
