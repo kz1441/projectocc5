@@ -360,12 +360,10 @@ const content = {
 					{
 						text: "Body changes",
 						image: {
-							male: "https://i.pinimg.com/564x/f8/fc/59/f8fc59c8eccc0c32774606ed2f3407c1.jpg"
-						},
-						labels: [
-							{ text: "Taller", x: "70%", y: "10%" },
-							{ text: "Hair", x: "35%", y: "55%" }
-						]
+							en: "images/kk2.jpg",
+							ms: "images/kk3.jpg",
+							zh: "images/kk1.jpg"
+						}
 					},
 					{
 						text: "Grow taller",
