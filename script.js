@@ -495,7 +495,15 @@ const content = {
                         text: "My Morning Hygiene Steps",
                         type: "strip",
                         steps: [
-                            { image: "https://img.freepik.com/premium-photo/asian-man-waking-up-morning-sitting-bed-stretching_126277-1356.jpg", label: "Wake Up" },
+                            {
+                                image: "https://img.freepik.com/premium-photo/asian-man-waking-up-morning-sitting-bed-stretching_126277-1356.jpg",
+                                label: "Wake Up",
+                                modalImages: {
+                                    en: "images/we.jpg",
+                                    ms: "images/wm.jpg",
+                                    zh: "images/wc.jpg"
+                                }
+                            },
 							{ image: "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMDg1djlmZ2Zna213dGd6amEwNHJjdHNoNWZlcTJ4bTF1Y203c3cxOCZlcD12MV9naWZzX3NlYXJjaCZjdD1n/YaY0FF0eUWLtVNK1Uw/giphy.gif", label: "Brush Teeth" },
                             {
                                 image: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGJqbDBocDk2NWs1eGNueGNrcW13M2cxYXE5M3MzcThkcmc4bWY2OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ri8FpKsdTwiaUFWysZ/giphy.gif",
