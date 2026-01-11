@@ -874,16 +874,6 @@ function showScreen(screenId) {
         targetScreen.classList.add('active');
     }
 
-    // --- NEW CODE START ---
-    // Hide header on homepage, show it everywhere else
-    const navbar = document.getElementById('navbar');
-    if (screenId === 'homepage') {
-        navbar.classList.add('hidden-nav');
-    } else {
-        navbar.classList.remove('hidden-nav');
-    }
-    // --- NEW CODE END ---
-
     // Manage progress bar visibility
     const progressBar = document.getElementById('progressBar');
     if (screenId === 'home' || screenId === 'homepage' || screenId === 'topics') {
