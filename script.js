@@ -537,13 +537,6 @@ const content = {
                             {
                                 image: "https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExZGJqbDBocDk2NWs1eGNueGNrcW13M2cxYXE5M3MzcThkcmc4bWY2OCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Ri8FpKsdTwiaUFWysZ/giphy.gif",
                                 label: "Wash Face",
-                                details: [
-                                    "Wet face",
-                                    "Gentle cleanser",
-                                    "Gentle circles",
-                                    "Rinse with water",
-                                    "Pat dry with clean towel"
-                                ],
                                 modalImages: {
                                     en: "images/eimg.jpg",
                                     ms: "images/mimg.jpg",
@@ -2588,8 +2581,21 @@ function resetPromptTimeout() {
                         targets.push(quizOptions[index]);
                     }
                 });
-            } else if (quizOptions.length > 0) {
-                targets.push(quizOptions[Math.floor(Math.random() * quizOptions.length)]);
+            }
+        } else if (activeScreen.id === 'activityScreen') {
+            const submoduleKey = `submodule${currentState.submodule}`;
+            const topic = content[submoduleKey].topics.find(t => t.id === currentState.topic);
+            const activity = topic?.activity;
+            const correctLabels = getCorrectActivityLabels(activity);
+            const activityOptions = activeScreen.querySelectorAll('.activity-option');
+
+            if (correctLabels.length > 0 && activityOptions.length > 0) {
+                activityOptions.forEach(option => {
+                    const label = getOptionLabel(option);
+                    if (label && correctLabels.includes(label)) {
+                        targets.push(option);
+                    }
+                });
             }
         } else {
             const candidates = activeScreen.querySelectorAll('button, .topic-card, .activity-option, .submodule-card, .gender-card');
@@ -2876,38 +2882,52 @@ function triggerHint() {
 
     const options = container.querySelectorAll('.activity-option, .quiz-option, .gender-card, .emotion-card');
     
-    // 2. Data Map linking Questions to their Correct Answers
-    const targetMap = {
-        "Which picture shows a body change during puberty?": "Growing Taller",
-        "Choose me!": "Boy",
-        "Touch your forehead. How does your skin feel to your fingers?": "Smooth and Dry!",
-        "How much power do you have now?": "100%",
-        "When does body hair appear?": "After Puberty",
-        "When does a person have short legs?": "Before Puberty",
-        "Which is the essential kit in taking shower?": "Soap",
-        "Which shows positive body image? +": "My body is strong",
-        "What does sleep give you?": "Energy",
-        "Tap the HEALTHY foods!": ["Vegetables", "Fruits"], 
-        "Which food help you grow strong?": "Vegetables"
-    };
+    const submoduleKey = `submodule${currentState.submodule}`;
+    const topic = content[submoduleKey].topics.find(t => t.id === currentState.topic);
+    let targetLabels = [];
 
-    const targetLabel = targetMap[pageText];
-
-    // 3. Highlight only the specific correct answer(s)
-    if (targetLabel) {
-        options.forEach(opt => {
-            const label = opt.querySelector('p, .option-text, span, .label')?.textContent.trim();
-            const isMatch = Array.isArray(targetLabel) ? targetLabel.includes(label) : label === targetLabel;
-            
-            if (isMatch) {
-                opt.classList.add('pulse');
-                // Remove the pulse after 3 seconds so it's not permanent
-                setTimeout(() => opt.classList.remove('pulse'), 3000);
-            }
-        });
+    if (activityScreen.classList.contains('active')) {
+        targetLabels = getCorrectActivityLabels(topic?.activity);
+    } else if (quizScreen.classList.contains('active')) {
+        const quizData = Array.isArray(topic.quiz) ? topic.quiz[currentState.quizSlide] : topic.quiz;
+        if (quizData && quizData.type !== "subjective") {
+            targetLabels = quizData.options.filter(option => option.correct).map(option => translateText(option.text));
+        }
     }
-    // Note: The "Random Hint" logic has been removed to ensure 
-    // hints are only provided for correct answers.
 
+    if (targetLabels.length === 0) {
+        return;
+    }
+
+    options.forEach(opt => {
+        const label = getOptionLabel(opt);
+        if (!label) {
+            return;
+        }
+        if (targetLabels.includes(label)) {
+            opt.classList.add('pulse');
+            setTimeout(() => opt.classList.remove('pulse'), 3000);
+        }
+    });
+}
+
+function getCorrectActivityLabels(activity) {
+    if (!activity) {
+        return [];
+    }
+    if (Array.isArray(activity.choices)) {
+        return activity.choices.filter(choice => choice.correct).map(choice => translateText(choice.text));
+    }
+    if (Array.isArray(activity.items)) {
+        return activity.items.filter(item => item.correct).map(item => translateText(item.text));
+    }
+    if (Array.isArray(activity.timeline)) {
+        return activity.timeline.filter(item => item.correct).map(item => translateText(item.stage));
+    }
+    return [];
+}
+
+function getOptionLabel(option) {
+    return option.querySelector('p, .option-text, span, .label')?.textContent.trim();
 }
 
