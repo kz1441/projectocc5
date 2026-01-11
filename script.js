@@ -17,7 +17,8 @@ let currentState = {
 
 let promptTimeout = null;
 let currentLanguage = 'en';
-let currentWashFaceImages = null;
+let currentModalImages = null;
+let currentModalLabel = null;
 
 const translations = {
     ms: {
@@ -281,22 +282,27 @@ function getWashFaceImage(modalImages) {
 }
 
 function updateWashFaceModalImage() {
-    if (!currentWashFaceImages) {
+    if (!currentModalImages) {
         return;
     }
     const modalImage = document.getElementById('washFaceImage');
+    const modalTitle = document.getElementById('washFaceTitle');
     if (modalImage) {
-        modalImage.src = getWashFaceImage(currentWashFaceImages);
-        modalImage.alt = translateText("Wash Face");
+        modalImage.src = getWashFaceImage(currentModalImages);
+        modalImage.alt = translateText(currentModalLabel || "Wash Face");
+    }
+    if (modalTitle) {
+        modalTitle.textContent = translateText(currentModalLabel || "Wash Face");
     }
 }
 
-function openWashFaceModal(modalImages) {
+function openWashFaceModal(modalImages, modalLabel) {
     const modal = document.getElementById('washFaceModal');
     if (!modal) {
         return;
     }
-    currentWashFaceImages = modalImages;
+    currentModalImages = modalImages;
+    currentModalLabel = modalLabel || "Wash Face";
     updateWashFaceModalImage();
     modal.classList.remove('hidden');
 }
@@ -307,7 +313,8 @@ function closeWashFaceModal() {
         return;
     }
     modal.classList.add('hidden');
-    currentWashFaceImages = null;
+    currentModalImages = null;
+    currentModalLabel = null;
 }
 
 // ==========================================
@@ -506,7 +513,15 @@ const content = {
                                     zh: "images/cimg.jpg"
                                 }
                             },
-                            { image: "https://www.telegraph.co.uk/content/dam/men/2017/06/30/TELEMMGLPICT000133447980_trans_NvBQzQNjv4BqdNLuJDSj-bduoIdVkVeVwdhwat7RjkF5CleLcJsFAQc.jpeg?imwidth=640", label: "Wear Deodorant" },
+                            {
+                                image: "https://www.telegraph.co.uk/content/dam/men/2017/06/30/TELEMMGLPICT000133447980_trans_NvBQzQNjv4BqdNLuJDSj-bduoIdVkVeVwdhwat7RjkF5CleLcJsFAQc.jpeg?imwidth=640",
+                                label: "Wear Deodorant",
+                                modalImages: {
+                                    en: "images/de.jpg",
+                                    ms: "images/dm.jpg",
+                                    zh: "images/dc.jpg"
+                                }
+                            },
                             { image: "https://globalsymbols.com/uploads/production/image/imagefile/8124/15_8124_b6261b9d-abb4-4bdb-b334-69d8ab3a8ff1.jpg", label: "Change Clean Clothes" },
                         ]
                     }
@@ -1109,12 +1124,12 @@ else if (slide.type === "strip") {
             stepDiv.setAttribute('role', 'button');
             stepDiv.setAttribute('tabindex', '0');
             stepDiv.classList.add('wash-face-hint');
-            stepDiv.setAttribute('aria-label', translateText("Wash Face"));
+            stepDiv.setAttribute('aria-label', translateText(step.label));
             const hintBadge = document.createElement('span');
             hintBadge.className = 'click-hint';
             hintBadge.textContent = '👆';
             stepDiv.appendChild(hintBadge);
-            const handleOpen = () => openWashFaceModal(step.modalImages);
+            const handleOpen = () => openWashFaceModal(step.modalImages, step.label);
             stepDiv.addEventListener('click', handleOpen);
             stepDiv.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter' || event.key === ' ') {
