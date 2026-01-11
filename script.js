@@ -538,7 +538,15 @@ const content = {
                                     zh: "images/dc.jpg"
                                 }
                             },
-                            { image: "https://globalsymbols.com/uploads/production/image/imagefile/8124/15_8124_b6261b9d-abb4-4bdb-b334-69d8ab3a8ff1.jpg", label: "Change Clean Clothes" },
+                            {
+                                image: "https://globalsymbols.com/uploads/production/image/imagefile/8124/15_8124_b6261b9d-abb4-4bdb-b334-69d8ab3a8ff1.jpg",
+                                label: "Change Clean Clothes",
+                                modalImages: {
+                                    en: "images/cce.jpg",
+                                    ms: "images/ccm.jpg",
+                                    zh: "images/ccc.jpg"
+                                }
+                            },
                         ]
                     }
                 ],
