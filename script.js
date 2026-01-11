@@ -274,6 +274,27 @@ function translateText(text) {
     return langMap[text] || text;
 }
 
+function getSlideImage(imageSource) {
+    if (!imageSource) {
+        return '';
+    }
+    if (typeof imageSource !== 'object' || imageSource === null) {
+        return imageSource;
+    }
+    const languageKeys = ['en', 'ms', 'zh'];
+    const hasLanguageKey = languageKeys.some(key => Object.prototype.hasOwnProperty.call(imageSource, key));
+    if (hasLanguageKey) {
+        return imageSource[currentLanguage] || imageSource.en || Object.values(imageSource)[0];
+    }
+    const hasGenderKey = Object.prototype.hasOwnProperty.call(imageSource, 'male')
+        || Object.prototype.hasOwnProperty.call(imageSource, 'female');
+    if (hasGenderKey) {
+        const gender = currentState.gender || 'male';
+        return imageSource[gender] || Object.values(imageSource)[0];
+    }
+    return Object.values(imageSource)[0];
+}
+
 function getWashFaceImage(modalImages) {
     if (!modalImages) {
         return '';
@@ -360,7 +381,9 @@ const content = {
 					},
 					{
 						image: {
-							male: "images/Screenshot 2026-01-10 042346.png",
+							en: "images/aae.jpg",
+							ms: "images/aam.jpg",
+							zh: "images/aaz.jpg"
 						}, 
 					}
 				],
@@ -1202,15 +1225,7 @@ else if (slide.type === "video") {
         else {
             if (slide.image) {
                 const img = document.createElement('img');
-
-                // If the image is an object { male: "...", female: "..." }
-                if (typeof slide.image === 'object' && slide.image !== null) {
-                    const gender = currentState.gender || 'male'; // Fallback to male
-                    img.src = slide.image[gender];
-                } else {
-                    // Otherwise it's just a normal string path
-                    img.src = slide.image;
-                }
+                img.src = getSlideImage(slide.image);
 
                 img.className = 'teach-image';
 
